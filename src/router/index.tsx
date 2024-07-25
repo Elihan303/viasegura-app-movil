@@ -3,6 +3,7 @@ import Login from "@pages/Login";
 import Home from "@pages/Home";
 import Register from "@pages/Register";
 import { RootStackParamList } from "./types";
+import BusRoute from "@pages/BusRoute";
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -12,9 +13,22 @@ export function MyStack() {
       initialRouteName="Login"
       screenOptions={{ headerBackTitle: "Atras" }}
     >
-      <Stack.Screen name="Login" component={Login} />
-      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen
+        name="Login"
+        options={{ headerTitle: "Inicio de sesion" }}
+        component={Login}
+      />
+      <Stack.Screen
+        name="Home"
+        options={{ headerTitle: "Inicio" }}
+        component={Home}
+      />
       <Stack.Screen name="Register" component={Register} />
+      <Stack.Screen
+        name="BusRoute"
+        options={{ headerTitle: "Ruta" }}
+        component={BusRoute}
+      />
     </Stack.Navigator>
   );
 }

@@ -13,7 +13,6 @@ import {
 } from "native-base";
 
 import { styles } from "./styles";
-import { useNavigation } from "@react-navigation/native";
 import { Props } from "./types";
 
 const Login: FC<Props> = ({ navigation }) => {

@@ -6,6 +6,7 @@ export type RootStackParamList = {
   Home: undefined;
   Register: undefined;
   BusRoute: BusRouteProps;
+  HomeDrawer: undefined;
 };
 export type RootStackProps<T extends keyof RootStackParamList> =
   StackScreenProps<RootStackParamList, T>;

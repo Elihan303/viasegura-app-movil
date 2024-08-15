@@ -7,9 +7,11 @@ import Loading from "@components/Loading";
 import { Button, Center, Heading, Text } from "native-base";
 import MapViewDirections from "react-native-maps-directions";
 import { Props } from "./types";
+import { useNavigation } from "@react-navigation/native";
 
 const Map: FC<Props> = ({ _route }) => {
   const { location, errorMsg } = useGetLocation();
+  const navigation = useNavigation();
   const coords = location?.coords;
   const GOOGLE_MAPS_APIKEY = process.env.EXPO_PUBLIC_GOOGLE_MAP_KEY;
 
@@ -40,13 +42,21 @@ const Map: FC<Props> = ({ _route }) => {
               origin={_route.origin}
               destination={_route.destination}
               apikey={GOOGLE_MAPS_APIKEY}
-              language={"es"}
               strokeColor="hotpink"
               strokeWidth={3}
             />
           </MapView>
           <Center>
-            <Button mt="2" colorScheme="indigo">
+            <Button
+              mt="2"
+              colorScheme="indigo"
+              onPress={() => {
+                navigation.reset({
+                  index: 0,
+                  routes: [{ name: "Home" as never }],
+                });
+              }}
+            >
               Reservar boleto
             </Button>
           </Center>

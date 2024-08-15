@@ -64,7 +64,7 @@ const Login: FC<Props> = ({ navigation }) => {
           <Button
             mt="2"
             colorScheme="indigo"
-            onPress={() => navigation.navigate("Home")}
+            onPress={() => navigation.navigate("HomeDrawer")}
           >
             Inicio de sesion
           </Button>

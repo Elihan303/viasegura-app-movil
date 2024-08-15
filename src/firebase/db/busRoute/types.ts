@@ -2,13 +2,8 @@ export interface IBusRouteArgs {
   nombre: string;
 }
 
-export interface IBusRoute {
-  id: string;
-  nombre: string;
-}
-
 export interface Route {
-  id: number;
+  id: string;
   routeName: string;
   description: string;
   departureTime: string;

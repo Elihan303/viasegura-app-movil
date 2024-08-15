@@ -4,6 +4,7 @@ import Home from "@pages/Home";
 import Register from "@pages/Register";
 import { RootStackParamList } from "./types";
 import BusRoute from "@pages/BusRoute";
+import MyDrawer from "./drawer";
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -17,6 +18,11 @@ export function MyStack() {
         name="Login"
         options={{ headerTitle: "Inicio de sesion" }}
         component={Login}
+      />
+      <Stack.Screen
+        name="HomeDrawer"
+        component={MyDrawer}
+        options={{ headerShown: false }} // Oculta el header del stack en esta pantalla
       />
       <Stack.Screen
         name="Home"

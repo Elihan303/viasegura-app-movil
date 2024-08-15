@@ -1,6 +1,6 @@
-// import { getFirestore } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 
-// import { FireBaseApp } from "../config";
+import { FireBaseApp } from "../config";
 
-// // Initialize Cloud Firestore and get a reference to the service
-// export const db = getFirestore(FireBaseApp);
+// Initialize Cloud Firestore and get a reference to the service
+export const db = getFirestore(FireBaseApp);

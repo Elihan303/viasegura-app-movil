@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import {
   Box,
   Center,
@@ -11,17 +11,28 @@ import {
 } from "native-base";
 import { getBusRoute } from "@firebase/db/busRoute";
 import { Props } from "./types";
+import { Route } from "@firebase/db/busRoute/types";
 
 const Home: FC<Props> = ({ navigation }) => {
-  const data = getBusRoute();
+  const [busRouteData, setBusRoute] = useState<Route[] | undefined>([]);
+  const getBusRouteAsync = async () => {
+    const _data = await getBusRoute();
+    setBusRoute(_data);
+  };
+
+  useEffect(() => {
+    getBusRouteAsync();
+  }, []);
+
   return (
     <Center flex={1} backgroundColor={"white"}>
       <Box flex={1}>
         <Heading fontSize="xl" p="4" pb="3" mt="3">
           Rutas
         </Heading>
+
         <FlatList
-          data={data}
+          data={busRouteData}
           renderItem={({ item }) => (
             <Box
               onTouchStart={() =>
